@@ -1,63 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using MenuShell3.Domain.Entities;
-using MenuShell3.Domain.Services;
 
 namespace MenuShell3.View
 {
     class AdminView
     {
-
-
         private readonly Dictionary<string, User> _users;
+
         public AdminView(Dictionary<string, User> users)
         {
             _users = users;
         }
-
-        bool notLoggedIn = true;
-
+        private bool done = false;
         public void Display()
         {
             do
             {
                 Console.Clear();
-                Console.Write("Username: ");
-                var userName = Console.ReadLine();
+                Console.WriteLine("1. Add user");
+                Console.WriteLine("2. List users");
+                Console.WriteLine("3. Delete user");
+                Console.WriteLine("4. Log out");
+                Console.WriteLine("5. Exit");
 
-                Console.Write("Password: ");
-                var passWord = Console.ReadLine();
+                Console.Write("> ");
+                var choice = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Is this correct? (Y)es (N)o");
 
-                var answer = Console.ReadKey(true).Key;
-
-                if (answer == ConsoleKey.Y)
+                switch (choice)
                 {
-                    var authentication = new Authentication(_users);
-
-                    if (authentication.Authenticate(userName, passWord) != null) //Valid user
-                    {
-                        notLoggedIn = false;
-                    }
-                    else //Invalid user
-                    {
-                        Console.WriteLine("Invalid username and/or password, try again.");
-                        Thread.Sleep(500);
-                    }
+                    case 1:
+                        var addUserView = new AddUserView(_users);
+                        addUserView.Display();
+                        break;
+                    case 2:
+                        var listUserView = new ListUserView(_users);
+                        listUserView.Display();
+                        break;
+                    case 3:
+                        var deleteUserView = new DeleteUserView(_users);
+                        deleteUserView.Display();
+                        break;
+                    case 4:
+                        var loginView = new LoginView(_users);
+                        loginView.Display();
+                        done = true;
+                        break;
+                    case 5:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input, try again");
+                        Thread.Sleep(750);
+                        break;
                 }
-                else if (answer == ConsoleKey.N) //Ritar menyn igen 
-                {
-                    Console.WriteLine("Invalid selection.");
-                    Thread.Sleep(500);
-                }
 
-            } while (notLoggedIn);
-
+            } while (!done);
         }
     }
 }

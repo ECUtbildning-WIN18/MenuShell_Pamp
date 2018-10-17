@@ -55,6 +55,8 @@
     <Compile Include="View\DeleteUserView.cs" />
     <Compile Include="View\ListUserView.cs" />
     <Compile Include="View\LoginView.cs" />
+    <Compile Include="View\ReceptionistMainView.cs" />
+    <Compile Include="View\VeterinarianMainView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

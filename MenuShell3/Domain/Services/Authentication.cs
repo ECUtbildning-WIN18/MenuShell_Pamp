@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Security;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MenuShell3.Domain.Entities;
 
 namespace MenuShell3.Domain.Services
@@ -16,7 +11,6 @@ namespace MenuShell3.Domain.Services
         {
             _users = users;
         }
-
         public User Authenticate(string userName, string passWord)
         {
             if (_users.ContainsKey(userName) && _users[userName].Password == passWord)
