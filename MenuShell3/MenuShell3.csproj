@@ -43,19 +43,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Entities\Animal.cs" />
+    <Compile Include="Domain\Entities\Journal.cs" />
+    <Compile Include="Domain\Entities\Owner.cs" />
+    <Compile Include="Domain\Entities\Schedule.cs" />
     <Compile Include="Domain\Entities\Users.cs" />
     <Compile Include="Domain\Services\AddUser.cs" />
     <Compile Include="Domain\Services\Authentication.cs" />
     <Compile Include="Domain\Services\DeleteUser.cs" />
     <Compile Include="Domain\Services\ListUser.cs" />
+    <Compile Include="Domain\Services\SearchUser.cs" />
+    <Compile Include="Domain\Services\XML-Services\JournalLoader.cs" />
+    <Compile Include="Domain\Services\XML-Services\JournalSaver.cs" />
+    <Compile Include="Domain\Services\XML-Services\OwnerLoader.cs" />
+    <Compile Include="Domain\Services\XML-Services\OwnerSaver.cs" />
+    <Compile Include="Domain\Services\XML-Services\ScheduleLoader.cs" />
+    <Compile Include="Domain\Services\XML-Services\ScheduleSaver.cs" />
+    <Compile Include="Domain\Services\XML-Services\UserLoader.cs" />
+    <Compile Include="Domain\Services\XML-Services\AnimalLoader.cs" />
+    <Compile Include="Domain\Services\XML-Services\AnimalSaver.cs" />
+    <Compile Include="Domain\Services\XML-Services\UserSaver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\AddUserView.cs" />
-    <Compile Include="View\AdminView.cs" />
+    <Compile Include="View\AdminMainView.cs" />
     <Compile Include="View\DeleteUserView.cs" />
     <Compile Include="View\ListUserView.cs" />
     <Compile Include="View\LoginView.cs" />
+    <Compile Include="View\ManageUserView.cs" />
     <Compile Include="View\ReceptionistMainView.cs" />
+    <Compile Include="View\SearchUserView.cs" />
     <Compile Include="View\VeterinarianMainView.cs" />
   </ItemGroup>
   <ItemGroup>

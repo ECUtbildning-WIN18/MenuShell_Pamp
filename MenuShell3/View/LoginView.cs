@@ -25,39 +25,46 @@ namespace MenuShell3.View
             var authentication = new Authentication(_users);
             var receptionistMainView = new ReceptionistMainView();
             var veterinarianMainView = new VeterinarianMainView();
-            var adminMenu = new AdminView(_users);
+            var adminMenu = new AdminMainView(_users);
 
             do
             {
                 Console.Clear();
-                Console.WriteLine("# Login");
+                Console.WriteLine(" # Login");
 
-                Console.Write("\nUsername: ");
+                Console.Write("\n Username: ");
                 var userName = Console.ReadLine();
 
-                Console.Write("Password: ");
+                Console.Write(" Password: ");
                 var passWord = Console.ReadLine();
 
-                Console.WriteLine("Is this correct? (Y)es (N)o");
+                Console.Write("\n Is this correct? (Y)es (N)o");
 
                 var confirm = Console.ReadKey(true).Key;
+                Console.WriteLine();
 
                 if (confirm == ConsoleKey.Y)
                 {
-                    if (authentication.Authenticate(userName, passWord) != null) //Valid user
+                    if (authentication.Authenticate(userName, passWord) != null) 
                     {
                         validUser = _users[userName];
                         notLoggedIn = false;
                         if (validUser.Role == Rec)
                         {
+                            Console.Write($"\n\n Successfully logged in as {Rec}");
+                            Thread.Sleep(1500);
                             receptionistMainView.Display();
                         }
                         else if (validUser.Role == Vet)
                         {
+                            Console.Write($"\n\n Successfully logged in as {Vet}");
+                            Thread.Sleep(1500);
                             veterinarianMainView.Display();
                         }
                         else if (validUser.Role == Adm)
                         {
+                            Console.Write($"\n\n Successfully logged in as {Adm}");
+                            Thread.Sleep(1500);
                             adminMenu.Display();
                         }
                     }
@@ -70,7 +77,7 @@ namespace MenuShell3.View
                 else if (confirm == ConsoleKey.N) //Displays menu again
                 {
                     Console.WriteLine("Try again");
-                    Thread.Sleep(500);
+                    Thread.Sleep(1000);
                 }
             } while (notLoggedIn);
 

@@ -14,10 +14,13 @@ namespace MenuShell3
 
             var users = new Dictionary<string, User>
             {
-                {"admin", new User("admin", "secret",Adm)},
-                {"johndoe", new User("johndoe", "secret",Rec)},
-                {"janedoe", new User("janedoe", "secret",Vet)},
-                {"jimdoe", new User("jimdoe", "secret", Adm)}
+                {"admin", new User("admin", "secret",Adm) },
+                {"johndoe", new User("johndoe", "secret",Rec) },
+                {"janedoe", new User("janedoe", "secret",Vet) },
+                {"jimdoe", new User("jimdoe", "secret", Adm) },
+                {"janne",new User("janne", "secret", Vet) },
+                {"janine",new User("janine", "secret", Adm) },
+                {"jimmy", new User("jimmy", "secret", Rec) }
             };
 
             var loginView = new LoginView(users);

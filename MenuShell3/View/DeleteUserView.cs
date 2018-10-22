@@ -37,7 +37,7 @@ namespace MenuShell3.View
                     {
                         Console.WriteLine("There's no user with that username");
                         done = true;
-                        Thread.Sleep(750);
+                        Thread.Sleep(1000);
                     }
                 }
             } while (!done);
