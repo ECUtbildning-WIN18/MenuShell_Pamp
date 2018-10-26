@@ -1,8 +1,6 @@
-﻿using System;
+﻿using MenuShell3.Domain.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MenuShell3.View;
 
 namespace MenuShell3
 {
@@ -10,6 +8,23 @@ namespace MenuShell3
     {
         static void Main(string[] args)
         {
+            const string Adm = "Administrator";
+            const string Rec = "Receptionist";
+            const string Vet = "Veterinarian";
+
+            var users = new Dictionary<string, User>
+            {
+                {"admin", new User("admin", "secret",Adm) },
+                {"johndoe", new User("johndoe", "secret",Rec) },
+                {"janedoe", new User("janedoe", "secret",Vet) },
+                {"jimdoe", new User("jimdoe", "secret", Adm) },
+                {"janne",new User("janne", "secret", Vet) },
+                {"janine",new User("janine", "secret", Adm) },
+                {"jimmy", new User("jimmy", "secret", Rec) }
+            };
+
+            var loginView = new LoginView(users);
+            loginView.Display();
         }
     }
 }
